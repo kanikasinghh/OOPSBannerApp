@@ -116,7 +116,7 @@ public class BannerApp{
      System.out.println (oPattern[i] + " " +oPattern[i]+" "+pPattern[i]+" "+SPattern[i]);
         }
      }
-} */
+} 
 
 public class OopsBannerApp{
  static class CharacterPatternMap {
@@ -165,6 +165,54 @@ public class OopsBannerApp{
 		String message = "OOPS";
 		printMessage(message,charMaps);
 	}
+} */
+
+public class OopsBannerApp {
+
+    private static final java.util.Map<Character, String[]> patterns =
+            new java.util.HashMap<>();
+
+    static {
+        patterns.put('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        });
+
+        patterns.put('P', new String[]{
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+        });
+
+        patterns.put('S', new String[]{
+                " ****",
+                "*    ",
+                " *** ",
+                "    *",
+                "**** "
+        });
+    }
+
+    public static void render(String word) {
+
+        int height = patterns.get('O').length;
+
+        for (int i = 0; i < height; i++) {
+            for (char ch : word.toCharArray()) {
+                System.out.print(patterns.get(ch)[i] + "  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        render("OOPS");
+    }
 }
 
 
